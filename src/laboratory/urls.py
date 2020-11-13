@@ -20,7 +20,7 @@ from laboratory.views.objects import ObjectView
 from laboratory.api.views import ApiReservedProductsCRUD, ApiReservationCRUD
 from laboratory.views.my_reservations import MyReservationView
 from laboratory.validators import validate_duplicate_initial_date
-from laboratory.functions import return_laboratory_of_shelf_id
+from laboratory.functions import return_laboratory_of_shelf_id, copy_laboratory
 objviews = ObjectView()
 
 urlpatterns = [
@@ -41,6 +41,7 @@ urlpatterns = [
 
     url(r"validators", validate_duplicate_initial_date, name="date_validator"),
     url(r"returnLabId", return_laboratory_of_shelf_id, name="get_lab_id"),
+    url(r"copyLab", copy_laboratory, name="copy_laboratory"),
 ]
 
 lab_shelf_urls = [

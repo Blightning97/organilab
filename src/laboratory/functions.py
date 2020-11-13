@@ -12,3 +12,7 @@ def return_laboratory_of_shelf_id(request):
             for lab_id in lab_id_queryset:
                 labs.append(lab_id['shelf__furniture__labroom__laboratory__id'])
         return JsonResponse({'lab_ids': labs})
+
+
+def copy_laboratory(dataconfig):
+    print(dataconfig)

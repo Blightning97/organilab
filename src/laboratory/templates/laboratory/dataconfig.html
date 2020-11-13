@@ -7,7 +7,7 @@
 	data-success="processResponse"
 	href="{% url 'laboratory:shelf_create' laboratory %}?row={{forloop.parentloop.counter0}}&col={{forloop.counter0}}&furniture={{obj.pk}}"> 
 	<span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> {% trans 'Add Shelf' %} </a>
-	
+	{{laboratory}}
 	<div  id="row_{{forloop.parentloop.counter0}}_col_{{forloop.counter0}}">
 		<ul class="list-group sortableself"> 
 		{% include 'laboratory/shelf_rows.html' with crow=forloop.parentloop.counter0 ccol=forloop.counter0 %}

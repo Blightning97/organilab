@@ -1,8 +1,9 @@
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import Http404
-
+from django.shortcuts import get_object_or_404
 from reservations_management.models import ReservedProducts, Reservations
 from laboratory.api.serializers import ReservedProductsSerializer, ReservationSerializer, ReservedProductsSerializerUpdate
 
@@ -47,3 +48,9 @@ class ApiReservationCRUD(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CopyLaboratoryViewSet(viewsets.ViewSet):
+    """
+    A ViewSet to copy a laboratory.
+    """
