@@ -14,5 +14,5 @@ def return_laboratory_of_shelf_id(request):
         return JsonResponse({'lab_ids': labs})
 
 
-def copy_laboratory(dataconfig):
-    print(dataconfig)
+def copy_laboratory():
+    print('copy')

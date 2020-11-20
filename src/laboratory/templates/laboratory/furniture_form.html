@@ -40,17 +40,18 @@
                 {% endif %}
           </div>
           <div id="copy_button" class="col-md-1 col-md-offset-1">
-	          <button class="btn btn-success" href="{% url 'laboratory:copy_laboratory'%}">
+	          <button class="btn btn-success" type="button" onclick="save_copy_laboratory()">
 	            <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>{% trans 'Copy' %}
 	          </button>
 	        </div>
           <div id="paste_button" class="col-md-1 col-md-offset-0">
-	          <button class="btn btn-success">
+	          <button class="btn btn-success" type="button" onclick="pasting_laboratory()">
 	            <span class="glyphicon glyphicon-paste" aria-hidden="true"></span>{% trans 'Paste' %}
 	          </button>
 	        </div>
 	      </div>
       {% endif %}
+      {{column}}
       {% if form.instance.pk %}
          {% if perm_add_furniture %}
         <div id="furniture_size" class="table-responsive">
@@ -151,7 +152,7 @@
 {% block js %}
   <script src="{% static 'laboratory/js/jquery-sortable-min.js' %}"></script>
   <script src="{% static 'laboratory/js/furniture_table.js' %}"></script>
-
+  <script src="{% static 'laboratory/js/copy-laboratory.js' %}"></script>
   <link href="{% static 'laboratory/css/bootstrap-tour.css' %}"
   	rel="stylesheet">
   <link href="{% static 'laboratory/css/bootstrap-tour.docs.css' %}"
